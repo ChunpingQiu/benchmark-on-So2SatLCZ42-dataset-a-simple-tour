@@ -1,5 +1,5 @@
 # @Date:   2020-02-04T17:07:00+01:00
-# @Last modified time: 2020-02-20T20:15:52+01:00
+# @Last modified time: 2020-03-01T14:52:26+01:00
 
 import resnet
 import model
@@ -19,17 +19,19 @@ config.gpu_options.per_process_gpu_memory_fraction = 0.45#0.41
 session = tf.Session(config=config)
 
 ###################################################
-'path to save:'
+'path to save models from check points:'
 file0='./'
 
-'path to data'
+'path to data, needs to be set accordingly'
 train_file='/work/qiu/SEN2_LCZ42_UTM/TIANCHI_FINAL_DATASET/training.h5'
 validation_file='/work/qiu/SEN2_LCZ42_UTM/TIANCHI_FINAL_DATASET/validation.h5'
 
 patch_shape=(32,32,10)
 numClasses=17
 batchSize=32
+###################################################
 
+'number of all samples in training and validation sets'
 trainNumber=352366
 validationNumber=24119
 lr_sched = lr.step_decay_schedule(initial_lr=0.002, decay_factor=0.5, step_size=5)

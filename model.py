@@ -1,12 +1,12 @@
 # @Date:   2019-12-23T11:32:33+01:00
-# @Last modified time: 2020-02-20T19:58:25+01:00
+# @Last modified time: 2020-03-01T14:53:10+01:00
 # @Date:   2019-12-23T11:24:52+01:00
-# @Last modified time: 2020-02-20T19:58:25+01:00
+# @Last modified time: 2020-03-01T14:53:10+01:00
 
 
 
 """
-sen2LCZ
+sen2LCZ, the exact architecture can be found in ./modelFig
 
 """
 
@@ -158,12 +158,12 @@ def sen2LCZ_drop_core(inputs, num_classes=17, bn=1, depth=5, dim=16, dropRate=0.
                     kernel_initializer='he_normal')(x)
 
     if fusion==1:
-        'prediction'
-        x = GlobalAveragePooling2D()(merge2)#Flatten
-        print(x.shape)
-        outputs_8 = Dense(num_classes,
-                        activation='softmax',
-                        kernel_initializer='he_normal')(x)
+        'final prediction'
+        # x = GlobalAveragePooling2D()(merge2)#Flatten
+        # print(x.shape)
+        # outputs_8 = Dense(num_classes,
+        #                 activation='softmax',
+        #                 kernel_initializer='he_normal')(x)
         o=outputs=Average()([outputs, outputs_32, outputs_16, outputs_8])
     else:
         o=outputs
