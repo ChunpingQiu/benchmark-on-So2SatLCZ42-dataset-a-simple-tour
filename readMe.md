@@ -4,7 +4,7 @@
 
 ## basics and requirements
 
-keras
+keras (tensorflow backend)
 
 data:
 https://arxiv.org/abs/1912.12171
