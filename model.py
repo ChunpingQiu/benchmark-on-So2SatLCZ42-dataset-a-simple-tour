@@ -1,7 +1,7 @@
 # @Date:   2019-12-23T11:32:33+01:00
-# @Last modified time: 2020-03-01T14:53:10+01:00
+# @Last modified time: 2020-04-24T10:31:27+02:00
 # @Date:   2019-12-23T11:24:52+01:00
-# @Last modified time: 2020-03-01T14:53:10+01:00
+# @Last modified time: 2020-04-24T10:31:27+02:00
 
 
 
@@ -170,7 +170,7 @@ def sen2LCZ_drop_core(inputs, num_classes=17, bn=1, depth=5, dim=16, dropRate=0.
 
     return o
 
-def sen2LCZ_drop(input_shape, num_classes=17, bn=1, depth=5, dim=16, dropRate=0.1, fusion=0):
+def sen2LCZ_drop(input_shape=(32,32,10), num_classes=17, bn=1, depth=5, dim=16, dropRate=0.1, fusion=0):
     """
 
     # Arguments

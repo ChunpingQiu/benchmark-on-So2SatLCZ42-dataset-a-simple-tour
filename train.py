@@ -1,5 +1,5 @@
 # @Date:   2020-02-04T17:07:00+01:00
-# @Last modified time: 2020-03-01T14:52:26+01:00
+# @Last modified time: 2020-04-24T10:31:52+02:00
 
 import resnet
 import model
@@ -20,13 +20,12 @@ session = tf.Session(config=config)
 
 ###################################################
 'path to save models from check points:'
-file0='./'
+file0='./results/'
 
 'path to data, needs to be set accordingly'
 train_file='/work/qiu/SEN2_LCZ42_UTM/TIANCHI_FINAL_DATASET/training.h5'
 validation_file='/work/qiu/SEN2_LCZ42_UTM/TIANCHI_FINAL_DATASET/validation.h5'
 
-patch_shape=(32,32,10)
 numClasses=17
 batchSize=32
 ###################################################
@@ -37,8 +36,9 @@ validationNumber=24119
 lr_sched = lr.step_decay_schedule(initial_lr=0.002, decay_factor=0.5, step_size=5)
 
 ###################################################
+# patch_shape=(32,32,10)
 # model = resnet.resnet_v2(input_shape=patch_shape, depth=11, num_classes=numClasses)
-model = model.sen2LCZ_drop(patch_shape, num_classes=numClasses, bn=1, depth=17, dropRate=0.2, fusion=1)
+model = model.sen2LCZ_drop(depth=17, dropRate=0.2, fusion=1)
 
 model.compile(optimizer = Nadam(), loss = 'categorical_crossentropy', metrics=['accuracy'])
 
