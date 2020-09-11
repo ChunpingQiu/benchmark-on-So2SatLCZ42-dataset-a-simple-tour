@@ -7,7 +7,8 @@
 
 """
 sen2LCZ, the exact architecture can be found in ./modelFig
-
+Reference: https://ieeexplore.ieee.org/document/9103196
+Multilevel Feature Fusion-Based CNN for Local Climate Zone Classification From Sentinel-2 Images: Benchmark Results on the So2Sat LCZ42 Dataset
 """
 
 from __future__ import print_function
