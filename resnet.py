@@ -7,6 +7,9 @@
 
 """
 ResNet v2
+
+Reference: https://github.com/kobiso/CBAM-keras
+
 This is a revised implementation from Cifar10 ResNet example in Keras:
 (https://github.com/keras-team/keras/blob/master/examples/cifar10_resnet.py)
 [b] Identity Mappings in Deep Residual Networks
