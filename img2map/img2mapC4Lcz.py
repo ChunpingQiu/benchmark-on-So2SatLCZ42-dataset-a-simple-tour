@@ -336,7 +336,7 @@ class img2mapC(object):
 	  #geotransform = (trans[0] + trans[1]*(self.dim_x_img-1)/2.0, xres, 0, trans[3] + trans[5]*(self.dim_y_img-1)/2.0, 0, yres)
 	
 	  #bcause "assuming that trans[0] is the top left corner of the top left pixel" and all the geotiff"s origin is the top left orner of the top left pixel
-	  geotransform = (trans[0] + trans[1]*(self.dim_x_img)/2.0-self.step/2.0, xres, 0, trans[3] + trans[5]*(self.dim_y_img)/2.0+self.step/2.0, 0, yres)
+	  geotransform = (trans[0] + trans[1]*(self.dim_x_img)/2.0-self.step/2.0*trans[1], xres, 0, trans[3] + trans[5]*(self.dim_y_img)/2.0+self.step/2.0*trans[5], 0, yres)
 	
 
 	 # create the dimZ raster file
