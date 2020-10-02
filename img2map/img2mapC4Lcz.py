@@ -332,8 +332,12 @@ class img2mapC(object):
 	  xres =trans[1]*self.step
 	  yres= trans[5]*self.step
 
-	  "assuming that trans[0] is the center of the first pixel"
-	  geotransform = (trans[0] + trans[1]*(self.dim_x_img-1)/2.0, xres, 0, trans[3] + trans[5]*(self.dim_y_img-1)/2.0, 0, yres)
+	  #"assuming that trans[0] is the center of the first pixel"
+	  #geotransform = (trans[0] + trans[1]*(self.dim_x_img-1)/2.0, xres, 0, trans[3] + trans[5]*(self.dim_y_img-1)/2.0, 0, yres)
+	
+	  #bcause "assuming that trans[0] is the top left corner of the top left pixel" and all the geotiff"s origin is the top left orner of the top left pixel
+	  geotransform = (trans[0] + trans[1]*(self.dim_x_img)/2.0-self.step/2.0, xres, 0, trans[3] + trans[5]*(self.dim_y_img)/2.0+self.step/2.0, 0, yres)
+	
 
 	 # create the dimZ raster file
 	  LCZFile = gdal.GetDriverByName('GTiff').Create(mapFile + '.tif', C, R, 1, gdal.GDT_Byte)#gdal.GDT_Byte .GDT_Float32 gdal.GDT_Float32
